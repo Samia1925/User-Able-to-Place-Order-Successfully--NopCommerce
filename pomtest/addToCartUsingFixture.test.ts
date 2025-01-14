@@ -14,10 +14,9 @@ test("Register test_01", async ({ page, registrationPage }) => {
    // const register = new RegistrationPage(page);
 await page.goto("https://test460.nop-station.com/en/register?returnUrl=%2Fen%2F");
 
-//expect(register.enterGender()).toBeChecked();
+
 await registrationPage.enterFirstName("samia");
 await registrationPage.enterLasttName("jahan");
-// await registrationPage.DateOfBirth("25.08.1850");
 await registrationPage.enterEmail(email);
 await registrationPage.enterCompanyDetails("");
 await registrationPage.enterOptions();
@@ -36,7 +35,7 @@ test("Login test_02", async ({ page, loginPage }) => {
     await loginPage.enterPassword(password);
     await loginPage.checkedRememberMe();
     await loginPage.clickLogin();
-    //expect(await page.title()).toBe("My account");
+    
 
 
 })

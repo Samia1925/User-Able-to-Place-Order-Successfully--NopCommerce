@@ -26,18 +26,6 @@ export default class Checkout {
         .type(company);
         }
 
-   /* async enterCountryName(country: string){
-        await this.page.locator("//select[@name='BillingNewAddress.CountryId']")
-        .type(country);
-
-        await this.page.waitForTimeout(2000);
-        }
-
-         async enterStateName(state: string){
-         await this.page.locator("//select[@name='BillingNewAddress.StateProvinceId']")
-         .type(state);
-        }   
-*/
          async enterCountryName(country: string) {
             const countryDropdown = this.page.locator("//select[@name='BillingNewAddress.CountryId']");
             await countryDropdown.selectOption({ 
@@ -93,12 +81,10 @@ export default class Checkout {
         const radioButton = this.page.locator("//input[@type='radio' and @value='Ground___Shipping.FixedByWeightByTotal']");
     await radioButton.waitFor({ state: 'visible' });
 
-    // Select the radio button
+    
     await radioButton.check();
 
-        //input[@type='radio' and @value='Ground___Shipping.FixedByWeightByTotal']
-
-       //button[@type='submit' and @class= 'button-1 shipping-method-next-step-button']
+  
   
     
     }

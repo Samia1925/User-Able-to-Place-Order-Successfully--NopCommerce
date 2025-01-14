@@ -88,12 +88,12 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 42577,
+                      "duration": 41788,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-01-14T03:21:30.007Z",
+                      "startTime": "2025-01-14T06:25:57.964Z",
                       "attachments": [
                         {
                           "name": "screenshot",
@@ -108,7 +108,7 @@
               ],
               "id": "92fe7589f3cd844569b7-2eca5494b67494544208",
               "file": "pomtest/addToCartUsingFixture.test.ts",
-              "line": 57,
+              "line": 56,
               "column": 6
             }
           ]
@@ -118,8 +118,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-01-14T03:21:29.417Z",
-    "duration": 43721.55,
+    "startTime": "2025-01-14T06:25:57.249Z",
+    "duration": 43112.138000000006,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
