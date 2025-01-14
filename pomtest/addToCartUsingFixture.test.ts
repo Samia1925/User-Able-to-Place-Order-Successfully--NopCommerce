@@ -50,9 +50,11 @@ test.describe("Page object test demo", async () => {
 
         await page.goto("https://test460.nop-station.com/en/login?returnUrl=%2Fen%2F");
         await loginPage.login(email, password);
+        await loginPage.verifySuccessfulLogin();
         await homePage.clickOnBooks();
         await books.addFirstAndSecondProductsToCart();
 
+        await checkout.verifyBillingAddress();
         await checkout.enterFirstName("sam");
         await checkout.enterLastName("jah");
         await checkout.enterEmail("");

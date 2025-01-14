@@ -6,6 +6,17 @@ export default class Checkout {
     constructor(public page: Page) {
     }
 
+    async verifyBillingAddress() {
+        const firstMsg = await this.page.locator("//h1[contains(text(), 'Billing address')]");
+        
+    
+        // Assert it is visible 
+        //  if the message is visible then user successfully land on billing address page
+        expect(await firstMsg.isVisible()).toBe(true);
+        
+       
+    }
+
     async enterFirstName(firstname: string){
         await this.page.locator("//input[@type='text' and @name='BillingNewAddress.FirstName']")
         .type(firstname);
@@ -70,6 +81,7 @@ export default class Checkout {
     .type(faxNo);
     } 
                 
+    // shipping part 
     async clickNext(){
         await Promise.all([
             this.page.waitForNavigation({waitUntil:"networkidle"}),
@@ -85,6 +97,7 @@ export default class Checkout {
 
     }
     
+    // payment method
     async clickNext2() {
         
         await Promise.all([

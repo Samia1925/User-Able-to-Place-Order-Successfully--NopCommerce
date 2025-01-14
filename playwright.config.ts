@@ -28,14 +28,15 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices["Desktop Chrome"], // Ensure correct casing
       },
-    },
+    }
+    // ,
     
-    {
-      name: "edge",
-      use: {
-        ...devices["Desktop Edge"],
-      },
-    },
+    // {
+    //   name: "edge",
+    //   use: {
+    //     ...devices["Desktop Edge"],
+    //   },
+    // },
     
   ],
 
@@ -56,7 +57,7 @@ const config: PlaywrightTestConfig = {
     },
   },
 
-  retries: 1, // Increase retries if needed
+  retries: 0, // Increase retries if needed
 
   reporter: [
     ["dot"],

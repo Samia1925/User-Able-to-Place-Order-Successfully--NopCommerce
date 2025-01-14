@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 
 export default class LoginPage{
 
@@ -32,5 +32,16 @@ export default class LoginPage{
 
     ])
         }
+
+        async verifySuccessfulLogin() {
+                const firstMsg = await this.page.locator("//a[@class='ico-account']");
+                
+            
+                // Assert it is visible 
+                //  if the message is visible then user successfully logged in
+                expect(await firstMsg.isVisible()).toBe(true);
+                
+               
+            }
 
     }
