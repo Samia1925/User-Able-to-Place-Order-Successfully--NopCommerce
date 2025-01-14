@@ -81,12 +81,8 @@ export default class Checkout {
         const radioButton = this.page.locator("//input[@type='radio' and @value='Ground___Shipping.FixedByWeightByTotal']");
     await radioButton.waitFor({ state: 'visible' });
 
-    
     await radioButton.check();
 
-  
-  
-    
     }
     
     async clickNext2() {

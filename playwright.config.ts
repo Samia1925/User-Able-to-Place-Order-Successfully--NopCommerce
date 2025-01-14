@@ -8,8 +8,8 @@ import { devices } from '@playwright/test';
       platform: "Windows 10",
       build: "Playwright Test from config",
       name: "Playwright Test -1",
-      user: 'inowreenb1525',
-      accessKey: '42sVE40zbIIggC9ANJBiMyPvyZcdQVfcguuPJzVkbcv1PD7iO7',
+      user: 'samiajahan1925',
+      accessKey: 'fwwEaeD2X89vzCjGEwvrNKcTXsfM5zVjK31211yETZOl8ts7HG',
       network: true,
       video: true,
       console: true,
@@ -29,19 +29,18 @@ const config: PlaywrightTestConfig = {
         ...devices["Desktop Chrome"], // Ensure correct casing
       },
     },
-    /*
+    
     {
-      name: "firefox",
+      name: "edge",
       use: {
-        ...devices["Desktop Firefox"],
+        ...devices["Desktop Edge"],
       },
     },
-    */
+    
   ],
 
   testMatch: ["pomtest/addToCartUsingFixture.test.ts"], // Verify path
 
-  //testMatch: ["pomtest/addToCart.test.ts"], // Verify path
 
   use: {
    // connectOptions: {
@@ -52,13 +51,12 @@ const config: PlaywrightTestConfig = {
     headless: false,
     screenshot: "on", // "only-on-failure" can be used as well
     video: "retain-on-failure",
-    //timeout: 60 * 1000 * 5, // Test-specific timeout, also set to 5 minutes
     launchOptions: {
       slowMo: 1000,
     },
   },
 
-  retries: 0, // Increase retries if needed
+  retries: 1, // Increase retries if needed
 
   reporter: [
     ["dot"],
