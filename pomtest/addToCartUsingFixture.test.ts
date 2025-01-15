@@ -1,4 +1,5 @@
 import { expect, test } from "../base/pomFixture";
+import * as data from "../test-data/addToCart-test-data.json"
 
 /*test.use({
     browserName: "chromium" // how to run in different browser
@@ -14,8 +15,8 @@ test.describe("Page object test demo", async () => {
         // const register = new RegistrationPage(page);
         await page.goto("https://test460.nop-station.com/en/register?returnUrl=%2Fen%2F");
 
-        await registrationPage.enterFirstName("samia");
-        await registrationPage.enterLasttName("jahan");
+        await registrationPage.enterFirstName(data.firstname);
+        await registrationPage.enterLasttName(data.lastname);
         await registrationPage.enterEmail(email);
         await registrationPage.enterCompanyDetails("");
         await registrationPage.enterOptions();
@@ -60,17 +61,17 @@ test.describe("Page object test demo", async () => {
         await jewelry.addFirstAndSecondProductsToCart();
 
         await checkout.verifyBillingAddress();
-        await checkout.enterFirstName("sam");
-        await checkout.enterLastName("jah");
+        await checkout.enterFirstName("");
+        await checkout.enterLastName("");
         await checkout.enterEmail("");
-        await checkout.enterCompanyName("BS");
-        await checkout.enterCountryName("Bangladesh");
-        await checkout.enterStateName("ঢাকা");
-        await checkout.enterCityName("Dhaka");
-        await checkout.enterAddress1("dhaka");
+        await checkout.enterCompanyName("");
+        await checkout.enterCountryName(data.country);
+        await checkout.enterStateName(data.state);
+        await checkout.enterCityName(data.city);
+        await checkout.enterAddress1(data.address1);
         await checkout.enterAddress2("");
-        await checkout.enterZip("123");
-        await checkout.enterPhoneNo("019278549921");
+        await checkout.enterZip(data.zipcode);
+        await checkout.enterPhoneNo(data.phone);
         await checkout.enterFaxNo("");
 
         await checkout.clickNext();
