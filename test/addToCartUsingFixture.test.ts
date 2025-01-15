@@ -79,7 +79,7 @@ test.describe("Page object test demo", async () => {
         await checkout.enterAddress2(billingData.address2);
         await checkout.enterZip(billingData.zipcode);
         await checkout.enterPhoneNo(billingData.phone);
-        await checkout.enterFaxNo("");
+        await checkout.enterFaxNo(billingData.fax);
 
         await checkout.clickNext();
 
