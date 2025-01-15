@@ -6,6 +6,10 @@ export default class RegisterPage {
 
     }
 
+    async clickRegiterInit(){
+        await this.page.locator("//a[@class='ico-register']").click();
+    }
+    
     async enterGender() {
         return this.page.locator("//input[@type='radio' and contains(@value, 'F')] ");
 

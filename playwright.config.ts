@@ -40,7 +40,7 @@ const config: PlaywrightTestConfig = {
     
   ],
 
-  testMatch: ["pomtest/addToCartUsingFixture.test.ts"], // Verify path
+  testMatch: ["test/addToCartUsingFixture.test.ts"], // Verify path
 
 
   use: {

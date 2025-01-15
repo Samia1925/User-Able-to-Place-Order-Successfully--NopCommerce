@@ -5,6 +5,10 @@ export default class LoginPage{
         constructor(public page: Page){
         }
 
+        async clickLoginInit(){
+            await this.page.locator("//a[@class='ico-login']").click();
+        }
+
         async login(email: string, password: string){
             await this.enterEmail("ela12@gmail.com");
             await this.enterPassword(password);
