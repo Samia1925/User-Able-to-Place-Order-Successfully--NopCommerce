@@ -2,12 +2,9 @@ import { expect, test } from "../fixture/baseFixture";
 import * as billingData from "../test-data/billingAddress-test-data.json";
 import * as registerData from "../test-data/registration-test-data.json";
 
-/*test.use({
-    browserName: "chromium" // how to run in different browser
-}) */
 const email = "ela12@gmail.com";
 const password = "123456";
-const baseUrl= "https://test460.nop-station.com/en/";
+const baseUrl = "https://test460.nop-station.com/en/";
 
 test.describe("Page object test demo", async () => {
 
@@ -19,11 +16,15 @@ test.describe("Page object test demo", async () => {
 
         await registrationPage.clickRegiterInit();
 
+        await registrationPage.enterGender();
         await registrationPage.enterFirstName(registerData.firstname);
         await registrationPage.enterLasttName(registerData.lastname);
+        await registrationPage.selectDayOfBirth(registerData.dob.day);
+        await registrationPage.selectMonthOfBirth(registerData.dob.month);
+        await registrationPage.selectYearOfBirth(registerData.dob.year);
         await registrationPage.enterEmail(registerData.email);
         await registrationPage.enterCompanyDetails(registerData.company);
-        await registrationPage.enterOptions();
+        await registrationPage.newsletter();
         await registrationPage.enterPassword(registerData.password);
         await registrationPage.enterConfirmPassword(registerData.password);
         await registrationPage.clickRegister();
@@ -61,7 +62,7 @@ test.describe("Page object test demo", async () => {
         await loginPage.login(email, password);
         await loginPage.verifySuccessfulLogin();
 
-        await jewelry.clearCart(); 
+        await jewelry.clearCart();
 
         await homePage.clickOnBooks();
         await jewelry.addFirstAndSecondProductsToCart();

@@ -5,12 +5,11 @@
     "company": "",
     "password": "123456",
     "confirmpassword": "123456",
-    "country":"Turkey",
-    "state":"Bolu",
-    "city":"Dhaba",
-    "address1":"abudsa",
-    "address2":"",
-    "zipcode":"1234",
-    "phone":"01478963254789"
-
+    "country": "Turkey",
+    "state": "Bolu",
+    "city": "Dhaba",
+    "address1": "abudsa",
+    "address2": "",
+    "zipcode": "1234",
+    "phone": "01478963254789"
 }

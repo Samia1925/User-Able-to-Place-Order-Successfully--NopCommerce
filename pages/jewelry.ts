@@ -9,7 +9,7 @@ export default class Jewelry {
         const cartIcon = this.page.locator("//a[@class='ico-cart']");
         await cartIcon.hover();
         await cartIcon.click();
-   
+
         // Wait for the cart page to load
         const emptyCartMessage = this.page.locator("//span[@class='cart-qty' and text()='(0)']");
         if (await emptyCartMessage.isVisible()) {
@@ -19,7 +19,7 @@ export default class Jewelry {
             while (true) {
                 const removeButtons = this.page.locator("//button[@name='updatecart' and @class='remove-btn']");
                 const removeButtonCount = await removeButtons.count();
-               
+
                 if (removeButtonCount === 0) {
                     console.log("All items removed from the cart.");
                     break; // Exit the loop when no more items are left
@@ -29,7 +29,7 @@ export default class Jewelry {
             }
         }
     }
- 
+
 
     async addFirstAndSecondProductsToCart() {
         // Locate the "Add to cart" buttons
@@ -76,7 +76,7 @@ export default class Jewelry {
         const termsCheckbox = this.page.locator("//input[@type='checkbox' and @name='termsofservice']");
         await termsCheckbox.check(); // Check the checkbox
 
-       // const termandconditionClose = this.page.locator("//button[@type='button' and @title='Close']");
+        // const termandconditionClose = this.page.locator("//button[@type='button' and @title='Close']");
         // await termandconditionClose.click();
 
         const checkoutButton = this.page.locator("//button[@type='submit' and @name='checkout']");
@@ -85,5 +85,5 @@ export default class Jewelry {
 
     }
 
-    
+
 }

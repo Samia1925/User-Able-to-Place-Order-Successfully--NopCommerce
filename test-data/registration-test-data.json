@@ -1,9 +1,13 @@
 {
     "firstname": "samia",
     "lastname": "jahan",
-    "email": "qazxsw123@gmail.com",
+    "email": "aabb@gmail.com",
     "company": "abc123",
     "password": "123456",
-    "confirmpassword": "123456"
-
+    "confirmpassword": "123456",
+    "dob": {
+        "day": "15",
+        "month": "2", 
+        "year": "1990"
+    }  
 }

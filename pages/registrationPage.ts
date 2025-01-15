@@ -1,4 +1,6 @@
 import { expect, Page } from "@playwright/test";
+// import 
+
 
 export default class RegisterPage {
 
@@ -6,55 +8,74 @@ export default class RegisterPage {
 
     }
 
-    async clickRegiterInit(){
+    // to click on the register link from base url
+    async clickRegiterInit() {
         await this.page.locator("//a[@class='ico-register']").click();
     }
-    
+
+    //to choose gender from radio button
     async enterGender() {
-        return this.page.locator("//input[@type='radio' and contains(@value, 'F')] ");
+        return this.page.locator("//input[@type='radio' and contains(@value, 'F')] ").click();
 
     }
 
-
+    // to enter first name
     async enterFirstName(firstname: string) {
         await this.page.locator("//input[@name= 'FirstName']")
             .type(firstname);
     }
 
+    // to enter last name
     async enterLasttName(lastname: string) {
         await this.page.locator("//input[@name= 'LastName'] ")
             .type(lastname);
     }
 
-    async DateOfBirth(dateofbirth: string) {
-        await this.page.locator("//select[@name='DateOfBirthDay'] ")
-            .type(dateofbirth)
+   
+    async selectDayOfBirth(day: string) {
+        await this.page.selectOption("//select[@name='DateOfBirthDay']", { value: day });
     }
 
+    // to select month of birth from dropdown
+    async selectMonthOfBirth(month: string) {
+        await this.page.selectOption("//select[@name='DateOfBirthMonth']", { value: month });
+    }
+
+    // to select year of birth from dropdown
+    async selectYearOfBirth(year: string) {
+        await this.page.selectOption("//select[@name='DateOfBirthYear']", { value: year });
+    }
+
+    // to enter the email address
     async enterEmail(email: string) {
         await this.page.locator("//input[@name='Email'] ")
             .type(email);
     }
 
+    // to enter company name
     async enterCompanyDetails(company: string) {
         await this.page.locator("//input[@name='Company'] ")
             .type(company);
     }
 
-    async enterOptions() {
+    //  to choose newsletter or not
+    async newsletter() {
         return this.page.locator("//input[@type='checkbox' and @name='Newsletter'] ")
     }
 
+    // to enter password
     async enterPassword(password: string) {
         await this.page.locator("//input[@type='password' and @id='Password'] ")
             .type(password);
     }
 
+    //  to confirm password
     async enterConfirmPassword(password: string) {
         await this.page.locator("//input[@type='password' and @name='ConfirmPassword'] ")
             .type(password);
     }
 
+    //  to click on the register button
     async clickRegister() {
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
@@ -62,20 +83,6 @@ export default class RegisterPage {
         ])
 
     }
-
-    // async verifyRegistered() {
-    //     const firstMsg = await this.page.locator("//div[@class='result']");
-
-
-    //     // Assert it is visible 
-    //     //  if the message is visible then user successfully registered 
-    //     expect(await firstMsg.isVisible()).toBe(true);
-
-
-    // }
-
-
-
 
 
 }
