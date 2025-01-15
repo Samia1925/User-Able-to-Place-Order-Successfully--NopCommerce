@@ -35,24 +35,29 @@ test.describe("Page object test demo", async () => {
         await loginPage.clickLogin();
     })
 
-    test("Add to cart test_03", async ({ page, loginPage, homePage, books }) => {
+    test("Add to cart test_03", async ({ page, loginPage, homePage, jewelry }) => {
         //const login = new LoginPage(page);
         //const homepage = new HomePage(page);
         //const books = new Books(page);
 
         await page.goto("https://test460.nop-station.com/en/login?returnUrl=%2Fen%2F");
         await loginPage.login(email, password);
+        await jewelry.clearCart();
+
         await homePage.clickOnBooks();
-        await books.addFirstAndSecondProductsToCart();
+        await jewelry.addFirstAndSecondProductsToCart();
     })
 
-    test.only("Checkout test_04", async ({ page, loginPage, homePage, books, checkout }) => {
+    test.only("Checkout test_04", async ({ page, loginPage, homePage, jewelry, checkout }) => {
 
         await page.goto("https://test460.nop-station.com/en/login?returnUrl=%2Fen%2F");
         await loginPage.login(email, password);
         await loginPage.verifySuccessfulLogin();
+
+        await jewelry.clearCart(); 
+
         await homePage.clickOnBooks();
-        await books.addFirstAndSecondProductsToCart();
+        await jewelry.addFirstAndSecondProductsToCart();
 
         await checkout.verifyBillingAddress();
         await checkout.enterFirstName("sam");

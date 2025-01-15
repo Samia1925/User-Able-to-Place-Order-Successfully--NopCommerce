@@ -2,7 +2,7 @@ import {test as baseTest} from "@playwright/test"
 import RegistrationPage from "../pages/registrationPage"
 import LoginPage from "../pages/loginPage"
 import HomePage from "../pages/homePage"
-import Books from "../pages/books"
+import Jewelry from "../pages/jewelry"
 import Checkout from "../pages/checkout"
 import { homedir } from "os"
 
@@ -12,7 +12,7 @@ type pages = {
     registrationPage: RegistrationPage;
     loginPage: LoginPage;
     homePage: HomePage;
-    books: Books;
+    jewelry: Jewelry;
     checkout: Checkout
 }
 
@@ -29,8 +29,8 @@ homePage: async ({ page }, use) => {
     await use(new HomePage(page));
 },
 
-books: async ({ page }, use) => {
-    await use(new Books(page));
+jewelry: async ({ page }, use) => {
+    await use(new Jewelry(page));
 },
 
 checkout: async ({ page }, use) => {

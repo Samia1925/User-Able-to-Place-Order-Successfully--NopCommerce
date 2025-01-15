@@ -10,7 +10,7 @@ export default class HomePage{
           await Promise.all([
             this.page.waitForNavigation({waitUntil:"networkidle"}),
           
-          this.page.click("//a[contains (text(), 'Books ')] ")
+          this.page.click("//a[contains (text(), 'Jewelry')] ")
         ])
         }
     }
