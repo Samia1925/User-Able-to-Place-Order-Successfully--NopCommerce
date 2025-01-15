@@ -22,7 +22,7 @@ test.describe("Page object test demo", async () => {
         await registrationPage.enterFirstName(registerData.firstname);
         await registrationPage.enterLasttName(registerData.lastname);
         await registrationPage.enterEmail(registerData.email);
-        await registrationPage.enterCompanyDetails("");
+        await registrationPage.enterCompanyDetails(registerData.company);
         await registrationPage.enterOptions();
         await registrationPage.enterPassword(registerData.password);
         await registrationPage.enterConfirmPassword(registerData.password);
