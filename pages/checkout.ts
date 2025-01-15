@@ -8,13 +8,10 @@ export default class Checkout {
 
     async verifyBillingAddress() {
         const firstMsg = await this.page.locator("//h1[contains(text(), 'Billing address')]");
-        
-    
         // Assert it is visible 
         //  if the message is visible then user successfully land on billing address page
         expect(await firstMsg.isVisible()).toBe(true);
         
-       
     }
 
     async enterFirstName(firstname: string){
@@ -96,6 +93,14 @@ export default class Checkout {
     await radioButton.check();
 
     }
+
+    async verifyShippingMethod() {
+        const firstMsg = await this.page.locator("//h1[contains(text(), 'Select shipping method')] ");
+        // Assert it is visible 
+        //  if the message is visible then user successfully land on billing address page
+        expect(await firstMsg.isVisible()).toBe(true);
+        
+    }
     
     // payment method
     async clickNext2() {
@@ -111,6 +116,14 @@ export default class Checkout {
         await radioButton.click();
     }
 
+    async verifyPaymentMethod() {
+        const firstMsg = await this.page.locator("//h1[contains(text(), 'Select payment method')] ");
+        // Assert it is visible 
+        //  if the message is visible then user successfully land on billing address page
+        expect(await firstMsg.isVisible()).toBe(true);
+        
+    }
+
     async clickNext3() {
         
         await Promise.all([
@@ -118,6 +131,14 @@ export default class Checkout {
             this.page.click("//button[@type='submit' and @class='button-1 payment-method-next-step-button']")
         ]);
     
+    }
+
+    async verifyPaymentInfo() {
+        const firstMsg = await this.page.locator("//h1[contains(text(), 'Payment information')] ");
+        // Assert it is visible 
+        //  if the message is visible then user successfully land on billing address page
+        expect(await firstMsg.isVisible()).toBe(true);
+        
     }
 
     //button[@type='submit' and @class='button-1 payment-info-next-step-button']
@@ -129,6 +150,14 @@ export default class Checkout {
         ]);
     
     }  
+
+    async verifyConfirmOrder() {
+        const firstMsg = await this.page.locator("//h1[contains(text(), 'Confirm your order')] ");
+        // Assert it is visible 
+        //  if the message is visible then user successfully land on billing address page
+        expect(await firstMsg.isVisible()).toBe(true);
+        
+    }
     //button[@type='submit' and @class='button-1 confirm-order-next-step-button']
     async clickConfirmOrder() {
         

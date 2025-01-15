@@ -74,9 +74,17 @@ test.describe("Page object test demo", async () => {
         await checkout.enterFaxNo("");
 
         await checkout.clickNext();
+
+        await checkout.verifyShippingMethod();
         await checkout.clickNext2();
+
+        await checkout.verifyPaymentMethod();
         await checkout.clickNext3();
+
+        await checkout.verifyPaymentInfo();
         await checkout.clickNext4();
+
+        await checkout.verifyConfirmOrder();
         await checkout.clickConfirmOrder();
         await checkout.verifyThankYouMessage();
         await checkout.clickConfirmOrderDetailsLink();
