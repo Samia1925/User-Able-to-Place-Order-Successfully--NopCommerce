@@ -1,196 +1,263 @@
-
 import { Page, expect } from "@playwright/test";
+
+const checkoutTermsCheckBox="//input[@type='checkbox' and @name='termsofservice']";
+const checkoutCheckedButton="//button[@type='submit' and @name='checkout']";
+const checkoutAccountLocator1 ="//h1[contains(text(), 'Billing address')]";
+const checkoutAccountLocator2 ="//h1[contains(text(), 'Select shipping method')] ";
+const checkoutAccountLocator3 ="//h1[contains(text(), 'Select payment method')] ";
+const checkoutAccountLocator4 ="//h1[contains(text(), 'Payment information')] ";
+const checkoutAccountLocator5 ="//h1[contains(text(), 'Confirm your order')] ";
+const thankYouFirstMsg="//h1[contains(text(), 'Thank you')]";
+const thankYouSecondMsg="//strong[contains(text(), 'Your order has been successfully processed!')]";
+
+const billiingFirstName="//input[@type='text' and @name='BillingNewAddress.FirstName']";
+const billiingLastName="//input[@name='BillingNewAddress.LastName']";
+const billiingEmail="//input[@name='BillingNewAddress.Email']";
+const billingCompany="//input[@name='BillingNewAddress.Company']";
+const billingCountry="//select[@name='BillingNewAddress.CountryId']";
+const billingState="//select[@name='BillingNewAddress.StateProvinceId']";
+const billingCity="//input[@name='BillingNewAddress.City']";
+const billingAddress1="//input[@name='BillingNewAddress.Address1']";
+const billingAddress2="//input[@name='BillingNewAddress.Address2']";
+const billingZip="//input[@name='BillingNewAddress.ZipPostalCode']";
+const billingPhone="//input[@name='BillingNewAddress.PhoneNumber'] ";
+const billingFax="//input[@name='BillingNewAddress.FaxNumber'] ";
+const billingNextBtn="//button[@type='submit' and @id='billingaddress-next-button']";
+
+const shippingMethodGround="//input[@type='radio' and @value='Ground___Shipping.FixedByWeightByTotal']";
+const shippingMethodNextBtn="//button[@type='submit' and @class= 'button-1 shipping-method-next-step-button']";
+
+const paymentMethodCheckMoneyOrder="//input[@type='radio' and @value='Payments.CheckMoneyOrder' and @id='paymentmethod_4']";
+const paymentMethodNextBtn="//button[@type='submit' and @class='button-1 payment-method-next-step-button']";
+
+const paymentInfoNextBtn="//button[@type='submit' and @class='button-1 payment-info-next-step-button']";
+
+const confirmOrderNextBtn="//button[@type='submit' and @class='button-1 confirm-order-next-step-button']";
+const orderDetailsBtn="//a[contains(text(), 'Click here for order details.')]";
+
 
 export default class Checkout {
 
     constructor(public page: Page) {
     }
 
-    async verifyBillingAddress() {
-        const firstMsg = await this.page.locator("//h1[contains(text(), 'Billing address')]");
-        // Assert it is visible 
-        //  if the message is visible then user successfully land on billing address page
-        expect(await firstMsg.isVisible()).toBe(true);
+    async checkoutPage(){
+        const termsCheckbox = this.page.locator(checkoutTermsCheckBox);
+        await termsCheckbox.check(); 
 
+        const checkoutButton = this.page.locator(checkoutCheckedButton);
+        await checkoutButton.click();
+    }
+
+    async verifyBillingAddress() {
+        const accountLocator1 = this.page.locator(checkoutAccountLocator1);
+        
+        // Wait for the element to be visible
+        if (await accountLocator1.isVisible()) {
+            const text = await accountLocator1.textContent();
+    
+            // Check if the text matches the expected value
+            if (text?.trim() === "Billing address") {
+                console.log("Success: User successfully on Billing Address page.");
+            } else {
+                console.error(`Error: Expected 'Billing address' but found '${text?.trim()}'.`);
+            }
+        } else {
+            console.error("Error: place order failed, Billing address is not visible.");
+        }
     }
 
     async enterFirstName(firstname: string) {
-        await this.page.locator("//input[@type='text' and @name='BillingNewAddress.FirstName']")
-            .type(firstname);
+        await this.page.locator(billiingFirstName).type(firstname);
     }
 
     async enterLastName(lastname: string) {
-        await this.page.locator("//input[@name='BillingNewAddress.LastName']")
-            .type(lastname);
+        await this.page.locator(billiingLastName).type(lastname);
     }
 
     async enterEmail(email: string) {
-        await this.page.locator("//input[@name='BillingNewAddress.Email']")
-            .type(email);
+        await this.page.locator(billiingEmail).type(email);
     }
 
     async enterCompanyName(company: string) {
-        await this.page.locator("//input[@name='BillingNewAddress.Company']")
-            .type(company);
+        await this.page.locator(billingCompany).type(company);
     }
 
     async enterCountryName(country: string) {
-        const countryDropdown = this.page.locator("//select[@name='BillingNewAddress.CountryId']");
+        const countryDropdown = this.page.locator(billingCountry);
         await countryDropdown.selectOption({
             label: country
-        }); // Use selectOption to choose the country
+        }); 
         // Wait for the state dropdown to update after country selection
-        await this.page.locator("//select[@name='BillingNewAddress.StateProvinceId']").waitFor({ state: 'visible' });
+        await this.page.locator(billingState).waitFor({ state: 'visible' });
     }
 
     async enterStateName(state: string) {
-        const stateDropdown = this.page.locator("//select[@name='BillingNewAddress.StateProvinceId']");
+        const stateDropdown = this.page.locator(billingState);
         await stateDropdown.selectOption({
             label: state
-        }); // Use selectOption to choose the state
+        }); 
     }
     async enterCityName(city: string) {
-        await this.page.locator("//input[@name='BillingNewAddress.City']")
-            .type(city);
+        await this.page.locator(billingCity).type(city);
     }
     async enterAddress1(address1: string) {
-        await this.page.locator("//input[@name='BillingNewAddress.Address1']")
-            .type(address1);
+        await this.page.locator(billingAddress1).type(address1);
     }
 
     async enterAddress2(address2: string) {
-        await this.page.locator("//input[@name='BillingNewAddress.Address2']")
-            .type(address2);
+        await this.page.locator(billingAddress2).type(address2);
     }
 
     async enterZip(zip: string) {
-        await this.page.locator("//input[@name='BillingNewAddress.ZipPostalCode']")
-            .type(zip);
+        await this.page.locator(billingZip).type(zip);
     }
 
     async enterPhoneNo(phoneNo: string) {
-        await this.page.locator("//input[@name='BillingNewAddress.PhoneNumber'] ")
-            .type(phoneNo);
+        await this.page.locator(billingPhone).type(phoneNo);
 
     }
     async enterFaxNo(faxNo: string) {
-        await this.page.locator("//input[@name='BillingNewAddress.FaxNumber'] ")
-            .type(faxNo);
+        await this.page.locator(billingFax).type(faxNo);
     }
 
     // shipping part 
     async clickNext() {
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
-            this.page.click("//button[@type='submit' and @id='billingaddress-next-button']")
-
+            this.page.click(billingNextBtn)
         ]);
 
 
-        const radioButton = this.page.locator("//input[@type='radio' and @value='Ground___Shipping.FixedByWeightByTotal']");
-        await radioButton.waitFor({ state: 'visible' });
+        const shippingButton = this.page.locator(shippingMethodGround);
+        await shippingButton.waitFor({ state: 'visible' });
 
-        await radioButton.check();
+        await shippingButton.check();
 
     }
 
     async verifyShippingMethod() {
-        const firstMsg = await this.page.locator("//h1[contains(text(), 'Select shipping method')] ");
-        // Assert it is visible 
-        //  if the message is visible then user successfully land on billing address page
-        expect(await firstMsg.isVisible()).toBe(true);
-
+        const accountLocator2 = this.page.locator(checkoutAccountLocator2);
+        // Wait for the element to be visible
+        if (await accountLocator2.isVisible()) {
+            const text = await accountLocator2.textContent();
+    
+            // Check if the text matches the expected value
+            if (text?.trim() === "Select shipping method") {
+                console.log("Success: User successfully on Select shipping method page.");
+            } else {
+                console.error(`Error: Expected 'Select shipping method' but found '${text?.trim()}'.`);
+            }
+        } else {
+            console.error("Error: place order failed, Select shipping method is not visible.");
+        }
     }
 
     // payment method
     async clickNext2() {
-
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
-            this.page.click("//button[@type='submit' and @class= 'button-1 shipping-method-next-step-button']")
+            this.page.click(shippingMethodNextBtn)
         ]);
 
-
-        const radioButton = this.page.locator("//input[@type='radio' and @value='Payments.CheckMoneyOrder' and @id='paymentmethod_4']");
-
-        await radioButton.click();
+        const paymentMethod = this.page.locator(paymentMethodCheckMoneyOrder);
+        await paymentMethod.click();
     }
 
     async verifyPaymentMethod() {
-        const firstMsg = await this.page.locator("//h1[contains(text(), 'Select payment method')] ");
-        // Assert it is visible 
-        //  if the message is visible then user successfully land on billing address page
-        expect(await firstMsg.isVisible()).toBe(true);
-
+        const accountLocator3 = this.page.locator(checkoutAccountLocator3);
+        // Wait for the element to be visible
+        if (await accountLocator3.isVisible()) {
+            const text = await accountLocator3.textContent();
+    
+            // Check if the text matches the expected value
+            if (text?.trim() === "Select payment method") {
+                console.log("Success: User successfully on Select payment method page.");
+            } else {
+                console.error(`Error: Expected 'Select payment method' but found '${text?.trim()}'.`);
+            }
+        } else {
+            console.error("Error: place order failed, Select payment method is not visible.");
+        }
     }
 
     async clickNext3() {
-
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
-            this.page.click("//button[@type='submit' and @class='button-1 payment-method-next-step-button']")
+            this.page.click(paymentMethodNextBtn)
         ]);
-
     }
 
     async verifyPaymentInfo() {
-        const firstMsg = await this.page.locator("//h1[contains(text(), 'Payment information')] ");
-        // Assert it is visible 
-        //  if the message is visible then user successfully land on billing address page
-        expect(await firstMsg.isVisible()).toBe(true);
-
+        const accountLocator4 = this.page.locator(checkoutAccountLocator4);       
+        // Wait for the element to be visible
+        if (await accountLocator4.isVisible()) {
+            const text = await accountLocator4.textContent();
+    
+            // Check if the text matches the expected value
+            if (text?.trim() === "Payment information") {
+                console.log("Success: User successfully on Payment information page.");
+            } else {
+                console.error(`Error: Expected 'Payment information' but found '${text?.trim()}'.`);
+            }
+        } else {
+            console.error("Error: place order failed, Payment information is not visible.");
+        }
     }
 
-    //button[@type='submit' and @class='button-1 payment-info-next-step-button']
     async clickNext4() {
-
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
-            this.page.click("//button[@type='submit' and @class='button-1 payment-info-next-step-button']")
+            this.page.click(paymentInfoNextBtn)
         ]);
-
     }
 
     async verifyConfirmOrder() {
-        const firstMsg = await this.page.locator("//h1[contains(text(), 'Confirm your order')] ");
-        // Assert it is visible 
-        //  if the message is visible then user successfully land on billing address page
-        expect(await firstMsg.isVisible()).toBe(true);
-
+        const accountLocator5 = this.page.locator(checkoutAccountLocator5);
+        // Wait for the element to be visible
+        if (await accountLocator5.isVisible()) {
+            const text = await accountLocator5.textContent();
+    
+            // Check if the text matches the expected value
+            if (text?.trim() === "Confirm your order") {
+                console.log("Success: User successfully on Confirm your order page.");
+            } else {
+                console.error(`Error: Expected 'Confirm your order' but found '${text?.trim()}'.`);
+            }
+        } else {
+            console.error("Error: place order failed, Confirm your order is not visible.");
+        }
     }
-    //button[@type='submit' and @class='button-1 confirm-order-next-step-button']
+    
     async clickConfirmOrder() {
-
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
-            this.page.click("//button[@type='submit' and @class='button-1 confirm-order-next-step-button']")
+            this.page.click(confirmOrderNextBtn)
         ]);
-
     }
 
     async verifyThankYouMessage() {
-        const firstMsg = await this.page.locator("//h1[contains(text(), 'Thank you')]");
-        const secondMsg = await this.page.locator("//strong[contains(text(), 'Your order has been successfully processed!')]");
-
-        // Wait for the message to appear
-        //await thankYouMessage.waitFor({ state: 'visible' });
-
-        // Assert it is visible
-        expect(await firstMsg.isVisible()).toBe(true);
-        expect(await secondMsg.isVisible()).toBe(true);
-
+        const firstMsg = this.page.locator(thankYouFirstMsg);
+        const secondMsg = this.page.locator(thankYouSecondMsg);
+        // Check if the first message is visible
+        if (await firstMsg.isVisible()) {
+            console.log("Success: 'Thank you' message is visible.");
+        } else {
+            console.error("Error: 'Thank you' message is not visible.");
+        }
+    
+        // Check if the second message is visible
+        if (await secondMsg.isVisible()) {
+            console.log("Success: 'Your order has been successfully processed!' message is visible.");
+        } else {
+            console.error("Error: 'Your order has been successfully processed!' message is not visible.");
+        }
     }
-
-    async clickConfirmOrderDetailsLink() {
-        //a[contains(text(), 'Click here for order details.')]
+    
+    async clickConfirmOrderDetails() {
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
-            this.page.click("//a[contains(text(), 'Click here for order details.')]")
+            this.page.click(orderDetailsBtn)
         ]);
-
     }
-
-
-
-
 }

@@ -1,23 +1,33 @@
 import { Page } from "@playwright/test";
+import * as quantity from "../test-data/productQuantity-test-data.json";
+
+const jewelryCartIcon="//a[@class='ico-cart']";
+const jewelryEmptyCartMsg="//span[@class='cart-qty' and text()='(0)']";
+const jewelryRemoveCartProduct="//button[@name='updatecart' and @class='remove-btn']";
+const jewelryAddCartProduct="//button[contains(text(), 'Add to cart')]";
+const jewelryPopupMsg="//p[contains(text(), 'The product has been added')]";
+const jewelryMultiProduct="//h2[@class='product-title']//a[normalize-space()='Flower Girl Bracelet']";
+const jewelryMultiProductQty="//input[@class='qty-input'] ";
+const jewelryAddMultitProduct="//button[@id='add-to-cart-button-41']";
+const jewelryCloseCart="//span[@class='close' and @title='Close']";
 
 export default class Jewelry {
 
-    constructor(public page: Page) {
-    }
+    constructor(public page: Page) {}
 
     async clearCart() {
-        const cartIcon = this.page.locator("//a[@class='ico-cart']");
+        const cartIcon = this.page.locator(jewelryCartIcon);
         await cartIcon.hover();
         await cartIcon.click();
 
         // Wait for the cart page to load
-        const emptyCartMessage = this.page.locator("//span[@class='cart-qty' and text()='(0)']");
+        const emptyCartMessage = this.page.locator(jewelryEmptyCartMsg);
         if (await emptyCartMessage.isVisible()) {
             console.log("Cart is already empty.");
         } else {
             // Dynamically update the locator inside the loop
             while (true) {
-                const removeButtons = this.page.locator("//button[@name='updatecart' and @class='remove-btn']");
+                const removeButtons = this.page.locator(jewelryRemoveCartProduct);
                 const removeButtonCount = await removeButtons.count();
 
                 if (removeButtonCount === 0) {
@@ -31,59 +41,44 @@ export default class Jewelry {
     }
 
 
-    async addFirstAndSecondProductsToCart() {
+    async addProductsToCart() {
         // Locate the "Add to cart" buttons
-        const addFirstAndSecondProductsToCart = this.page.locator("//button[contains(text(), 'Add to cart')]");
+        const addFirstAndSecondProductsToCart = this.page.locator(jewelryAddCartProduct);
 
         // Click the first product's "Add to cart" button
         await addFirstAndSecondProductsToCart.nth(0).click();
 
         // Wait for the confirmation of the first product being added to the cart
-        const popupMessage1 = this.page.locator("//p[contains(text(), 'The product has been added to your')]");
+        const popupMessage1 = this.page.locator(jewelryPopupMsg);
         await popupMessage1.waitFor({ state: "visible" });
 
         // Click the second product's "Add to cart" button
         await addFirstAndSecondProductsToCart.nth(1).click();
 
         // Wait for the confirmation of the second product being added to the cart
-        const popupMessage2 = this.page.locator("//p[contains(text(), 'The product has been added to your')]");
+        const popupMessage2 = this.page.locator(jewelryPopupMsg);
         await popupMessage2.waitFor({ state: "visible" });
 
         // adding multiple quantity of product
 
-        const multiProduct = this.page.locator("//h2[@class='product-title']//a[normalize-space()='Flower Girl Bracelet']");
+        const multiProduct = this.page.locator(jewelryMultiProduct);
         await multiProduct.click();
 
-        const multiProductQty = this.page.locator("//input[@class='qty-input'] ")
-        await multiProductQty.fill("5");
+        const multiProductQty = this.page.locator(jewelryMultiProductQty)
+        await multiProductQty.fill(quantity.value);
 
-        const addMultiProduct = this.page.locator("//button[@id='add-to-cart-button-41']");
+        const addMultiProduct = this.page.locator(jewelryAddMultitProduct);
         await addMultiProduct.click();
 
-        const popupMessage3 = this.page.locator("//p[contains(text(), 'The product has been added to your')]");
+        const popupMessage3 = this.page.locator(jewelryPopupMsg);
         await popupMessage3.waitFor({ state: "visible" });
 
         // closing the carts
-
-        const closeButton = this.page.locator("//span[@class='close' and @title='Close']");
+        const closeButton = this.page.locator(jewelryCloseCart);
         await closeButton.click();
 
-        const cartIcon = this.page.locator("//a[@class='ico-cart']");
+        const cartIcon = this.page.locator(jewelryCartIcon);
         await cartIcon.hover();
         await cartIcon.click();
-
-        // Select the 'terms of service' checkbox
-        const termsCheckbox = this.page.locator("//input[@type='checkbox' and @name='termsofservice']");
-        await termsCheckbox.check(); // Check the checkbox
-
-        // const termandconditionClose = this.page.locator("//button[@type='button' and @title='Close']");
-        // await termandconditionClose.click();
-
-        const checkoutButton = this.page.locator("//button[@type='submit' and @name='checkout']");
-        await checkoutButton.click();
-
-
     }
-
-
 }

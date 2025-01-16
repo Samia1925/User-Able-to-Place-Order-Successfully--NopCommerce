@@ -1,16 +1,13 @@
 import { expect, test } from "../fixture/baseFixture";
 import * as billingData from "../test-data/billingAddress-test-data.json";
 import * as registerData from "../test-data/registration-test-data.json";
+import * as loginData from "../test-data/login-test-data.json";
 
-const email = "ela12@gmail.com";
-const password = "123456";
 const baseUrl = "https://test460.nop-station.com/en/";
 
 test.describe("Page object test demo", async () => {
 
-
     test("Register test_01", async ({ page, registrationPage }) => {
-
         // const register = new RegistrationPage(page);
         await page.goto(baseUrl);
 
@@ -28,44 +25,21 @@ test.describe("Page object test demo", async () => {
         await registrationPage.enterPassword(registerData.password);
         await registrationPage.enterConfirmPassword(registerData.password);
         await registrationPage.clickRegister();
-
+        await registrationPage.verifySuccessfulRegistration();
     })
 
-    // test("Login test_02", async ({ page, loginPage }) => {
-    //     //const login = new LoginPage(page);
-    //     await page.goto("https://test460.nop-station.com/en/login?returnUrl=%2Fen%2F");
-
-    //     await loginPage.enterEmail(email);
-    //     await loginPage.enterPassword(password);
-    //     await loginPage.checkedRememberMe();
-    //     await loginPage.clickLogin();
-    // })
-
-    // test("Add to cart test_03", async ({ page, loginPage, homePage, jewelry }) => {
-    //     //const login = new LoginPage(page);
-    //     //const homepage = new HomePage(page);
-    //     //const books = new Books(page);
-
-    //     await page.goto("https://test460.nop-station.com/en/login?returnUrl=%2Fen%2F");
-    //     await loginPage.login(email, password);
-    //     await jewelry.clearCart();
-
-    //     await homePage.clickOnBooks();
-    //     await jewelry.addFirstAndSecondProductsToCart();
-    // })
-
     test("User able to place order successfully_02", async ({ page, loginPage, homePage, jewelry, checkout }) => {
-
         await page.goto(baseUrl);
 
         await loginPage.clickLoginInit();
-        await loginPage.login(email, password);
+        await loginPage.login(loginData.email, loginData.password);
         await loginPage.verifySuccessfulLogin();
 
         await jewelry.clearCart();
 
         await homePage.clickOnBooks();
-        await jewelry.addFirstAndSecondProductsToCart();
+        await jewelry.addProductsToCart();
+        await checkout.checkoutPage();
 
         await checkout.verifyBillingAddress();
         await checkout.enterFirstName(billingData.firstname);
@@ -95,8 +69,6 @@ test.describe("Page object test demo", async () => {
         await checkout.verifyConfirmOrder();
         await checkout.clickConfirmOrder();
         await checkout.verifyThankYouMessage();
-        await checkout.clickConfirmOrderDetailsLink();
-
+        await checkout.clickConfirmOrderDetails();
     })
-
 })

@@ -28,7 +28,7 @@
       [
         "html",
         {
-          "open": "always"
+          "open": "on-failure"
         }
       ]
     ],
@@ -70,47 +70,9 @@
         {
           "title": "Page object test demo",
           "file": "test/addToCartUsingFixture.test.ts",
-          "line": 9,
+          "line": 8,
           "column": 6,
           "specs": [
-            {
-              "title": "Register test_01",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 300000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chrome",
-                  "projectName": "chrome",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "status": "passed",
-                      "duration": 15749,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-01-15T10:09:18.950Z",
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "E:\\nop1\\test-results\\test-addToCartUsingFixture-a9ef1--test-demo-Register-test-01-chrome\\test-finished-1.png"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "efc1f87caa5bbac2ce5a-7083a5030d396da3f0b9",
-              "file": "test/addToCartUsingFixture.test.ts",
-              "line": 12,
-              "column": 9
-            },
             {
               "title": "User able to place order successfully_02",
               "ok": true,
@@ -126,16 +88,40 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 47853,
+                      "duration": 53303,
                       "errors": [],
                       "stdout": [
                         {
+                          "text": "Success: User successfully logged in.\n"
+                        },
+                        {
                           "text": "Cart is already empty.\n"
+                        },
+                        {
+                          "text": "Success: User successfully on Billing Address page.\n"
+                        },
+                        {
+                          "text": "Success: User successfully on Select shipping method page.\n"
+                        },
+                        {
+                          "text": "Success: User successfully on Select payment method page.\n"
+                        },
+                        {
+                          "text": "Success: User successfully on Payment information page.\n"
+                        },
+                        {
+                          "text": "Success: User successfully on Confirm your order page.\n"
+                        },
+                        {
+                          "text": "Success: 'Thank you' message is visible.\n"
+                        },
+                        {
+                          "text": "Success: 'Your order has been successfully processed!' message is visible.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-01-15T10:09:34.888Z",
+                      "startTime": "2025-01-16T08:37:25.184Z",
                       "attachments": [
                         {
                           "name": "screenshot",
@@ -150,8 +136,8 @@
               ],
               "id": "efc1f87caa5bbac2ce5a-810b9bbab15834cda985",
               "file": "test/addToCartUsingFixture.test.ts",
-              "line": 57,
-              "column": 9
+              "line": 55,
+              "column": 10
             }
           ]
         }
@@ -160,9 +146,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-01-15T10:09:18.281Z",
-    "duration": 64741.743,
-    "expected": 2,
+    "startTime": "2025-01-16T08:37:24.446Z",
+    "duration": 54547.53,
+    "expected": 1,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

@@ -9,7 +9,7 @@ const config: PlaywrightTestConfig = {
     {
       name: "chrome",
       use: {
-        ...devices["Desktop Chrome"], // Ensure correct casing
+        ...devices["Desktop Chrome"], 
       },
     }
     // ,
@@ -40,7 +40,7 @@ const config: PlaywrightTestConfig = {
   reporter: [
     ["dot"],
     ["json", { outputFile: "jsonReporters/jsonReport.json" }],
-    ["html", { open: "always" }],
+    ["html", { open: "on-failure" }],
   ],
 };
 
