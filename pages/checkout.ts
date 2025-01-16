@@ -122,7 +122,7 @@ export default class Checkout {
     }
 
     // shipping part 
-    async clickNext() {
+    async billingToShippingmethodNext() {
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
             this.page.click(billingNextBtn)
@@ -154,7 +154,7 @@ export default class Checkout {
     }
 
     // payment method
-    async clickNext2() {
+    async shippingToPaymentMethodNext() {
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
             this.page.click(shippingMethodNextBtn)
@@ -181,7 +181,7 @@ export default class Checkout {
         }
     }
 
-    async clickNext3() {
+    async paymentMethodToPaymentDetailsNext() {
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
             this.page.click(paymentMethodNextBtn)
@@ -205,7 +205,7 @@ export default class Checkout {
         }
     }
 
-    async clickNext4() {
+    async paymentInfoToConfirmationNext() {
         await Promise.all([
             this.page.waitForNavigation({ waitUntil: "networkidle" }),
             this.page.click(paymentInfoNextBtn)

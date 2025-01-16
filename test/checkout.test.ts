@@ -55,16 +55,16 @@ test.describe("Page object test demo", async () => {
         await checkout.enterPhoneNo(billingData.phone);
         await checkout.enterFaxNo(billingData.fax);
 
-        await checkout.clickNext();
+        await checkout.billingToShippingmethodNext();
 
         await checkout.verifyShippingMethod();
-        await checkout.clickNext2();
+        await checkout.shippingToPaymentMethodNext();
 
         await checkout.verifyPaymentMethod();
-        await checkout.clickNext3();
+        await checkout.paymentMethodToPaymentDetailsNext();
 
         await checkout.verifyPaymentInfo();
-        await checkout.clickNext4();
+        await checkout.paymentInfoToConfirmationNext();
 
         await checkout.verifyConfirmOrder();
         await checkout.clickConfirmOrder();

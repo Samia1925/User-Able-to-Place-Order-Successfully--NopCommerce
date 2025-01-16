@@ -23,7 +23,7 @@ const config: PlaywrightTestConfig = {
 
   ],
 
-  testMatch: ["test/addToCart.test.ts"], // Verify path
+  testMatch: ["test/checkout.test.ts"], // Verify path
 
 
   use: {

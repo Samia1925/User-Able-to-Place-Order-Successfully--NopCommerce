@@ -48,7 +48,7 @@
         "testDir": "E:/nop1",
         "testIgnore": [],
         "testMatch": [
-          "test/addToCartUsingFixture.test.ts"
+          "test/checkout.test.ts"
         ],
         "timeout": 300000
       }
@@ -61,18 +61,60 @@
   },
   "suites": [
     {
-      "title": "test\\addToCartUsingFixture.test.ts",
-      "file": "test/addToCartUsingFixture.test.ts",
+      "title": "test\\checkout.test.ts",
+      "file": "test/checkout.test.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
           "title": "Page object test demo",
-          "file": "test/addToCartUsingFixture.test.ts",
+          "file": "test/checkout.test.ts",
           "line": 8,
           "column": 6,
           "specs": [
+            {
+              "title": "Register test_01",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 300000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 16030,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [
+                        {
+                          "text": "Error: regitration failed, 'Your registration completed' is not visible.\n"
+                        }
+                      ],
+                      "retry": 0,
+                      "startTime": "2025-01-16T10:05:06.642Z",
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\nop1\\test-results\\test-checkout-Page-object-test-demo-Register-test-01-chrome\\test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "181fd6ff1d3c23caa002-1475eed669293ce2001a",
+              "file": "test/checkout.test.ts",
+              "line": 10,
+              "column": 9
+            },
             {
               "title": "User able to place order successfully_02",
               "ok": true,
@@ -88,7 +130,7 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 53303,
+                      "duration": 51407,
                       "errors": [],
                       "stdout": [
                         {
@@ -121,12 +163,12 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-01-16T08:37:25.184Z",
+                      "startTime": "2025-01-16T10:05:23.035Z",
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "E:\\nop1\\test-results\\test-addToCartUsingFixture-b0e21-place-order-successfully-02-chrome\\test-finished-1.png"
+                          "path": "E:\\nop1\\test-results\\test-checkout-Page-object--05344-place-order-successfully-02-chrome\\test-finished-1.png"
                         }
                       ]
                     }
@@ -134,10 +176,10 @@
                   "status": "expected"
                 }
               ],
-              "id": "efc1f87caa5bbac2ce5a-810b9bbab15834cda985",
-              "file": "test/addToCartUsingFixture.test.ts",
-              "line": 55,
-              "column": 10
+              "id": "181fd6ff1d3c23caa002-37d414349529dc9ce376",
+              "file": "test/checkout.test.ts",
+              "line": 31,
+              "column": 9
             }
           ]
         }
@@ -146,9 +188,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-01-16T08:37:24.446Z",
-    "duration": 54547.53,
-    "expected": 1,
+    "startTime": "2025-01-16T10:05:05.589Z",
+    "duration": 69156.35100000001,
+    "expected": 2,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
