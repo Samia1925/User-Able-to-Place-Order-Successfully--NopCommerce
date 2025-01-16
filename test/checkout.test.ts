@@ -23,7 +23,7 @@ test.describe("Page object test demo", async () => {
         await registrationPage.enterCompanyDetails(registerData.company);
         await registrationPage.newsletter();
         await registrationPage.enterPassword(registerData.password);
-        await registrationPage.enterConfirmPassword(registerData.password);
+        await registrationPage.enterConfirmPassword(registerData.confirmPassword);
         await registrationPage.clickRegister();
         await registrationPage.verifySuccessfulRegistration();
     })

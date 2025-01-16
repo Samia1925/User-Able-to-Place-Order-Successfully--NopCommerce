@@ -24,10 +24,10 @@ export default class LoginPage {
     }
 
     async enterEmail(email: string) {
-        await this.page.locator(loginEmail).type(email);
+        await this.page.locator(loginEmail).fill(email);
     }
     async enterPassword(password: string) {
-        await this.page.locator(loginPassword).type(password);
+        await this.page.locator(loginPassword).fill(password);
     }
     async checkedRememberMe() {
         return this.page.locator(loginRememberMe)

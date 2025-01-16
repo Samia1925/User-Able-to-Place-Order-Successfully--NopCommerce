@@ -68,19 +68,19 @@ export default class Checkout {
     }
 
     async enterFirstName(firstname: string) {
-        await this.page.locator(billiingFirstName).type(firstname);
+        await this.page.locator(billiingFirstName).fill(firstname);
     }
 
     async enterLastName(lastname: string) {
-        await this.page.locator(billiingLastName).type(lastname);
+        await this.page.locator(billiingLastName).fill(lastname);
     }
 
     async enterEmail(email: string) {
-        await this.page.locator(billiingEmail).type(email);
+        await this.page.locator(billiingEmail).fill(email);
     }
 
     async enterCompanyName(company: string) {
-        await this.page.locator(billingCompany).type(company);
+        await this.page.locator(billingCompany).fill(company);
     }
 
     async enterCountryName(country: string) {
@@ -99,26 +99,26 @@ export default class Checkout {
         }); 
     }
     async enterCityName(city: string) {
-        await this.page.locator(billingCity).type(city);
+        await this.page.locator(billingCity).fill(city);
     }
     async enterAddress1(address1: string) {
-        await this.page.locator(billingAddress1).type(address1);
+        await this.page.locator(billingAddress1).fill(address1);
     }
 
     async enterAddress2(address2: string) {
-        await this.page.locator(billingAddress2).type(address2);
+        await this.page.locator(billingAddress2).fill(address2);
     }
 
     async enterZip(zip: string) {
-        await this.page.locator(billingZip).type(zip);
+        await this.page.locator(billingZip).fill(zip);
     }
 
     async enterPhoneNo(phoneNo: string) {
-        await this.page.locator(billingPhone).type(phoneNo);
+        await this.page.locator(billingPhone).fill(phoneNo);
 
     }
     async enterFaxNo(faxNo: string) {
-        await this.page.locator(billingFax).type(faxNo);
+        await this.page.locator(billingFax).fill(faxNo);
     }
 
     // shipping part 

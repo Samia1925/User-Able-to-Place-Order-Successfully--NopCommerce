@@ -33,12 +33,12 @@ export default class RegisterPage {
 
     // to enter first name
     async enterFirstName(firstname: string) {
-        await this.page.locator(registerFirstName).type(firstname);
+        await this.page.locator(registerFirstName).fill(firstname);
     }
 
     // to enter last name
     async enterLasttName(lastname: string) {
-        await this.page.locator(registerLastName).type(lastname);
+        await this.page.locator(registerLastName).fill(lastname);
     }
 
 
@@ -58,12 +58,12 @@ export default class RegisterPage {
 
     // to enter the email address
     async enterEmail(email: string) {
-        await this.page.locator(registerEmail).type(email);
+        await this.page.locator(registerEmail).fill(email);
     }
 
     // to enter company name
     async enterCompanyDetails(company: string) {
-        await this.page.locator(registerCompany).type(company);
+        await this.page.locator(registerCompany).fill(company);
     }
 
     //  to choose newsletter or not
@@ -73,12 +73,12 @@ export default class RegisterPage {
 
     // to enter password
     async enterPassword(password: string) {
-        await this.page.locator(registerPassword).type(password);
+        await this.page.locator(registerPassword).fill(password);
     }
 
     //  to confirm password
-    async enterConfirmPassword(password: string) {
-        await this.page.locator(registerConfirmPassword).type(password);
+    async enterConfirmPassword(confirmPassword: string) {
+        await this.page.locator(registerConfirmPassword).fill(confirmPassword);
     }
 
     //  to click on the register button
