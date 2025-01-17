@@ -39,6 +39,11 @@ Install “Playwright Test for VSCoc” from VS code extensions. Then type CTRL+
    npx playwright test
 
 ## **Output:**
+![screenshot (2)](https://github.com/user-attachments/assets/e07e4b68-8658-4424-8a51-b13cff3ca0c2)
+
+![screenshot (3)](https://github.com/user-attachments/assets/be7668fd-217e-4f57-b797-318797aa2e9f)
+
+![screenshot (4)](https://github.com/user-attachments/assets/67e469e5-ab55-4921-8917-00f2c8a38c7a)
 
 
 ## **References:**
