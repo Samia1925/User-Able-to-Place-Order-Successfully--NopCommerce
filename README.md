@@ -23,6 +23,7 @@ This project automates the key functionalities of the NopCommerce platform, spec
 Then, run:
    npm install
    -VS code shuld also be installed. If not then install it from https://code.visualstudio.com/download.
+
 2. Playwright VS code plugins: 
 Install “Playwright Test for VSCoc” from VS code extensions. Then type CTRL+SHIFT+P or from tab click View and choose “Command palette”, which will open command palette. Then type “install playwright” there and click the Enter button. It will pop up on such screen like below. Click on “OK”. It will start downloading browser driver. ![Screenshot 2025-01-17 105106](https://github.com/user-attachments/assets/1d433ad3-8e96-4ed0-8d28-2c8ba9443698)
 
