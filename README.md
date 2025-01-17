@@ -43,6 +43,16 @@ Install “Playwright Test for VSCoc” from VS code extensions. Then type CTRL+
    cd User-Able-to-Place-Order-Successfully--NopCommerce
 6. Run Tests: Execute the following command to run the tests:
    npx playwright test
+7. Allure report generation:
+   
+   On terminal run below commands;
+
+   npm install -D allure-commandline
+
+   npx allure generate ./allure-results --clean
+
+   npx allure open ./allure-report
+   
 
 ## **Output:**
 ![screenshot (2)](https://github.com/user-attachments/assets/e07e4b68-8658-4424-8a51-b13cff3ca0c2)
