@@ -1,0 +1,9 @@
+Success: User successfully logged in.
+Cart is already empty.
+Success: User successfully on Billing Address page.
+Success: User successfully on Select shipping method page.
+Success: User successfully on Select payment method page.
+Success: User successfully on Payment information page.
+Success: User successfully on Confirm your order page.
+Success: 'Thank you' message is visible.
+Success: 'Your order has been successfully processed!' message is visible.

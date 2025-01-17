@@ -1,13 +1,13 @@
 {
     "firstname": "amica",
     "lastname": "jury",
-    "email": "ami@gmail.com",
+    "email": "amiica@gmail.com",
     "company": "abc123",
     "password": "123456",
     "confirmPassword": "123456",
     "dob": {
         "day": "15",
         "month": "3", 
-        "year": "1995"
+        "year": "1999"
     }  
 }
