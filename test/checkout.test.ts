@@ -2,6 +2,7 @@ import { expect, test } from "../fixture/baseFixture";
 import * as billingData from "../test-data/billingAddress-test-data.json";
 import * as registerData from "../test-data/registration-test-data.json";
 import * as loginData from "../test-data/login-test-data.json";
+import LoginPage from "../pages/loginPage";
 
 const baseUrl = "https://test460.nop-station.com/en/";
 
@@ -28,7 +29,16 @@ test.describe("Page object test demo", async () => {
         await registrationPage.verifySuccessfulRegistration();
     })
 
-    test("User able to place order successfully_02", async ({ page, loginPage, homePage, jewelry, checkout }) => {
+    test("Log in test_02", async({page, loginPage}) => {
+        await page.goto(baseUrl);
+
+        await loginPage.clickLoginInit();
+        await loginPage.login(loginData.email, loginData.password);
+        await loginPage.verifySuccessfulLogin();
+
+    })
+
+    test("User able to place order successfully_03", async ({ page, loginPage, homePage, jewelry, checkout }) => {
         await page.goto(baseUrl);
 
         await loginPage.clickLoginInit();
