@@ -45,6 +45,21 @@ Install “Playwright Test for VSCoc” from VS code extensions. Then type CTRL+
 
 ![screenshot (4)](https://github.com/user-attachments/assets/67e469e5-ab55-4921-8917-00f2c8a38c7a)
 
+## Contributing
+I welcome contributions from the community! To contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature/YourFeature).
+3. Commit your changes (git commit -m 'Add some feature').
+4. Push to the branch (git push origin feature/YourFeature).
+5. Open a pull request.
+6. Please make sure to update tests as appropriate and adhere to the project's coding standards.
+
+## Contact 
+Samia Jahan-
+[LinkedIn](https://www.linkedin.com/in/samia-jahan-binte-nour/)-
+[mail](jahan.samiaa@gmail.com)-
+[github](https://github.com/Samia1925)
 
 ## **References:**
    1. [Testing Site](https://test460.nop-station.com/en/)
