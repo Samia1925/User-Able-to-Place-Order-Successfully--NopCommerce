@@ -61,6 +61,20 @@ Install “Playwright Test for VSCoc” from VS code extensions. Then type CTRL+
 
 ![screenshot (4)](https://github.com/user-attachments/assets/67e469e5-ab55-4921-8917-00f2c8a38c7a)
 
+## **Allure Report**
+![1](https://github.com/user-attachments/assets/45925922-197f-4e43-960e-c015a39dd7ac)
+
+![2](https://github.com/user-attachments/assets/ba7646c8-8cfc-4642-aad0-c06e8fbe1831)
+
+![3](https://github.com/user-attachments/assets/90901a09-bdad-4027-94dd-40b4e7ae6050)
+
+![4](https://github.com/user-attachments/assets/c62779db-943c-483a-ba18-ff76d717ced5)
+
+![5](https://github.com/user-attachments/assets/1262adc9-4e02-499d-817f-4abc37aa4d1d)
+
+![6](https://github.com/user-attachments/assets/962201f3-3a1b-4808-b992-ca317a9b783b)
+
+
 ## Contributing
 I welcome contributions from the community! To contribute, please follow these steps:
 
