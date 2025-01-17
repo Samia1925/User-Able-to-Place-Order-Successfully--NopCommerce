@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","16599","Register test_01","chrome","Fri Jan 17 14:30:24 GMT+06:00 2025","passed","Fri Jan 17 14:30:41 GMT+06:00 2025","Page object test demo","test\checkout.test.ts","",""
-"","48954","User able to place order successfully_03","chrome","Fri Jan 17 14:30:48 GMT+06:00 2025","passed","Fri Jan 17 14:31:37 GMT+06:00 2025","Page object test demo","test\checkout.test.ts","",""
 "","7499","Log in test_02","chrome","Fri Jan 17 14:30:41 GMT+06:00 2025","passed","Fri Jan 17 14:30:48 GMT+06:00 2025","Page object test demo","test\checkout.test.ts","",""
+"","48954","User able to place order successfully_03","chrome","Fri Jan 17 14:30:48 GMT+06:00 2025","passed","Fri Jan 17 14:31:37 GMT+06:00 2025","Page object test demo","test\checkout.test.ts","",""
+"","16599","Register test_01","chrome","Fri Jan 17 14:30:24 GMT+06:00 2025","passed","Fri Jan 17 14:30:41 GMT+06:00 2025","Page object test demo","test\checkout.test.ts","",""

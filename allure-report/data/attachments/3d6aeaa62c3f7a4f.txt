@@ -1,0 +1,1 @@
+Error: regitration failed, 'Your registration completed' is not visible.
