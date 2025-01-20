@@ -1,6 +1,6 @@
 # **User Able to Place Order Successfully in NopCommerce**
 
-This project automates the key functionalities of the NopCommerce platform, specifically user registration and order placement processes. Utilizing Playwright, Page Object Model (POM) and Fixture with Typescript, the suite ensures these processes are tested efficiently across multiple operating systems. It ensures robust and reliable testing across multiple browsers, reducing manual effort while improving accuracy.
+NopCommerce is a widely used e-commerce platform, and ensuring the reliability of critical functions like registration and order placement is essential for maintaining customer trust. Automating these processes reduces manual testing effort and improves accuracy. This project automates the key functionalities of the NopCommerce platform, specifically user registration and order placement processes. Utilizing Playwright, Page Object Model (POM) and Fixture with Typescript, the suite ensures these processes are tested efficiently across multiple operating systems. It ensures robust and reliable testing across multiple browsers, reducing manual effort while improving accuracy.
 
 ### Page object models(POM)
 Page object models are one such approach to structure your test suite where large test suites can be structured to optimize ease of authoring and maintenance. A page object represents a part of your web application. An e-commerce web application might have a home page, a listings page and a checkout page. Each of them can be represented by page object models. Page objects simplify authoring by creating a higher-level API which suits your application and simplify maintenance by capturing element selectors in one place and creating reusable code to avoid repetition. The use of POM ensures separation of concerns, making the code modular, readable, and maintainable.  
@@ -20,7 +20,7 @@ Playwright's built-in fixtures offer core elements like browser instances, conte
 2. Automation Framework: [Playwright](https://playwright.dev/docs/intro),
 3. Editor: [Visual Studio Code](https://code.visualstudio.com/download),
 4. Package Manager: [npm (Node.js)](https://nodejs.org/en/download),
-5. Reporting Tool: Allure 
+5. Reporting Tool: [Allure](https://allurereport.org/docs/install-for-windows/) 
 
 ## **Installation & Running on your Device**
 1. Node.js and Editor installation:
@@ -88,7 +88,6 @@ I welcome contributions from the community! To contribute, please follow these s
 ## Contact 
 Samia Jahan-
 [LinkedIn](https://www.linkedin.com/in/samia-jahan-binte-nour/)-
-[mail](jahan.samiaa@gmail.com)-
 [github](https://github.com/Samia1925)
 
 ## **References:**
