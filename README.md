@@ -24,35 +24,44 @@ Playwright's built-in fixtures offer core elements like browser instances, conte
 
 ## **Installation & Running on your Device**
 1. Node.js and Editor installation:
-   -Ensure you have Node.js installed. If not then install it from [the site](https://nodejs.org/en/download). After installation to check if node is already installed or not, type “node -v” to check what is the node version.
+   - Ensure you have Node.js installed. If not then install it from [the site](https://nodejs.org/en/download). After installation to check if node is already       installed or not and if installed then what is the node version.
+   ```bash
+   node -v
 
-   ![Screenshot 2025-01-17 104501](https://github.com/user-attachments/assets/5d98ebe4-2b59-4d65-8055-097b3c21f0f4)
+![Screenshot 2025-01-17 104501](https://github.com/user-attachments/assets/5d98ebe4-2b59-4d65-8055-097b3c21f0f4)
 
-Then, run:
+ - Then, run:
+      ```bash
    npm install
-   -VS code shuld also be installed. If not then install it from [the site](https://code.visualstudio.com/download).
+
+VS code should also be installed. If not then install it from [the site](https://code.visualstudio.com/download).
 
 2. Playwright VS code plugins: 
 Install “Playwright Test for VSCoc” from VS code extensions. Then type CTRL+SHIFT+P or from tab click View and choose “Command palette”, which will open command palette. Then type “install playwright” there and click the Enter button. It will pop up on such screen like below. Click on “OK”. It will start downloading browser driver.
 
 ![Screenshot 2025-01-17 105106](https://github.com/user-attachments/assets/1d433ad3-8e96-4ed0-8d28-2c8ba9443698)
 
-4. Clone the Repository:
+3. Clone the Repository:
+   ```bash
    git clone https://github.com/Samia1925/User-Able-to-Place-Order-Successfully--NopCommerce.git
-5. Navigate to the Project Directory:
+4. Navigate to the Project Directory:
+   ```bash
    cd User-Able-to-Place-Order-Successfully--NopCommerce
-6. Run Tests: Execute the following command to run the tests:
+5. Run Tests: Execute the following command to run the tests:
+   ```bash
    npx playwright test
-7. Allure report generation:
-   
-   On terminal run below commands;
-
-   npm install -D allure-commandline
-
-   npx allure generate ./allure-results --clean
-
-   npx allure open ./allure-report
-   
+6. Allure report generation:
+   On terminal run below commands
+- Install the commandline
+    ```bash
+    npm install -D allure-commandline
+    
+- Generate the report
+    ```bash
+    npx allure generate ./allure-results --clean
+- Open the report
+    ```bash
+    npx allure open ./allure-report   
 
 ## **Output:**
 ![screenshot (2)](https://github.com/user-attachments/assets/e07e4b68-8658-4424-8a51-b13cff3ca0c2)
@@ -79,9 +88,9 @@ Install “Playwright Test for VSCoc” from VS code extensions. Then type CTRL+
 I welcome contributions from the community! To contribute, please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch (git checkout -b feature/YourFeature).
-3. Commit your changes (git commit -m 'Add some feature').
-4. Push to the branch (git push origin feature/YourFeature).
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
 6. Please make sure to update tests as appropriate and adhere to the project's coding standards.
 
@@ -94,3 +103,5 @@ Samia Jahan-
    1. [Testing Site](https://test460.nop-station.com/en/)
    2. [Playwright documentation](https://playwright.dev/docs/intro)
    3. [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
+
+
